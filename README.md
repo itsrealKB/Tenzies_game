@@ -27,11 +27,11 @@ Please ensure that your code adheres to the existing coding standards and that y
 
 ## Technologies Used
 
--React 
--nanoid
--React Hooks
--React reusable components
--React props
+-React    
+-nanoid  
+-React Hooks  
+-React reusable components  
+-React props  
 
 ## Contact
 
