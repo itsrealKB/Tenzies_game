@@ -1,0 +1,997 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,600;1,100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.App {
+    background-color: #0b2434;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.game--container {
+    height: 80vh;
+    width: 30vw;
+    background-color: white;
+    border-radius: .3rem;
+    display: grid;
+    place-items: center;
+}
+
+.blur--container {
+    height: 80vh;
+    width: 30vw;
+    background-color: white;
+    border-radius: .3rem;
+    display: grid;
+    place-items: center;
+    opacity: .6;
+    filter: blur(6px);
+}
+
+.play--how {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 19px 0 19px 0;
+    background-color: #0b2434;
+    color: white;
+    font-weight: 600;
+}
+
+.hide--guide {
+    margin-top: 3.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 65vh;
+    width: 25vw;
+    position: absolute;
+    background-color: #0b2434;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+    z-index: 100;
+    line-height: 2.7rem;
+    word-spacing: .3rem;
+    transform: scale(0);
+    transition: all .5s ease-in;
+}
+
+.show--guide {
+    margin-top: 3.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 65vh;
+    width: 25vw;
+    position: absolute;
+    background-color: #0b2434;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+    z-index: 100;
+    line-height: 2.7rem;
+    word-spacing: .3rem;
+    transform: scale(1);
+    transition: all .5s ease-in;
+}
+
+.got--it {
+    margin-top: 2.5rem;
+    width: 8rem;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 19px 0 19px 0;
+    background-color: #59e391;
+    font-weight: 600;
+}
+
+.won {
+    position: absolute;
+    height: 90vh;
+    width: 35vw;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    color: white;
+    z-index: 10;
+}
+
+.buttons--container {
+    display: grid;
+    grid-template-rows: repeat(2, 2rem);
+    grid-template-columns: repeat(5, 2rem);
+    gap: 2.4rem;
+    place-items: center;
+}
+
+.buttons--container button {
+    border: none;
+    outline: none;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
+    border-radius: .4rem;
+    font-size: 2rem;
+    cursor: pointer;
+    height: 3.5rem;
+    width: 3.5rem;
+    font-weight: 600;
+    transition: all .3s ease-in-out;
+}
+
+.roll--dice {
+    height: 3em;
+    width: 8em;
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: .5rem;
+    background-color: #0b2434;
+    color: white;
+    font-weight: 600;
+}
+
+.roll--dice:active {
+    box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+.reset {
+    height: 3em;
+    width: 9em;
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 19px 0 19px 0;
+    background-color: #0b2434;
+    color: white;
+    font-weight: 600;
+}
+
+/* For smaller size Mobiles */
+
+@media (max-width:320px) {
+    .App {
+        background-color: #0b2434;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+    }
+
+    .game--container {
+        height: 80vh;
+        width: 90vw;
+        background-color: white;
+        border-radius: .3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .blur--container {
+        height: 80vh;
+        width: 90vw;
+        background-color: white;
+        border-radius: .3rem;
+        display: grid;
+        place-items: center;
+        opacity: .6;
+        filter: blur(6px);
+    }
+
+    .play--how {
+        padding: .7rem 1.2rem;
+        font-size: .8rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #0b2434;
+        color: white;
+        font-weight: 600;
+    }
+
+    .hide--guide {
+        margin-top: 3.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 60vh;
+        width: 85vw;
+        position: absolute;
+        background-color: #0b2434;
+        color: white;
+        padding: .5rem;
+        text-align: center;
+        font-size: 1.1rem;
+        z-index: 100;
+        line-height: 2rem;
+        word-spacing: .3rem;
+        transform: scale(0);
+        transition: all .5s ease-in;
+    }
+
+    .show--guide {
+        margin-top: 3.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 60vh;
+        width: 85vw;
+        position: absolute;
+        background-color: #0b2434;
+        color: white;
+        padding: .5rem;
+        text-align: center;
+        font-size: 1.1rem;
+        z-index: 100;
+        line-height: 2rem;
+        word-spacing: .3rem;
+        transform: scale(1);
+        transition: all .5s ease-in;
+    }
+
+    .got--it {
+        margin-top: 2.5rem;
+        width: 8rem;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #59e391;
+        font-weight: 600;
+    }
+
+
+    .won {
+        position: absolute;
+        height: 90vh;
+        width: 90vw;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 2rem;
+        color: white;
+        z-index: 10;
+    }
+
+    .buttons--container {
+        display: grid;
+        grid-template-rows: repeat(2, 2rem);
+        grid-template-columns: repeat(5, 2rem);
+        gap: 1.5rem;
+        place-items: center;
+    }
+
+    .buttons--container button {
+        border: none;
+        outline: none;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
+        border-radius: .4rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        height: 2.7rem;
+        width: 2.7rem;
+        transition: all .3s ease-in-out;
+    }
+
+    .roll--dice {
+        height: 2.5rem;
+        width: 7rem;
+        padding: .3rem 1rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: .5rem;
+        background-color: #0b2434;
+        color: white;
+    }
+
+    .reset {
+        height: 3em;
+        width: 9em;
+        padding: 1rem;
+        font-size: 1.1rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #0b2434;
+        color: white;
+        font-weight: 600;
+    }
+}
+
+/* For medium size Mobiles */
+
+@media (min-width:321px) and (max-width:375px) {
+    .App {
+        background-color: #0b2434;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .game--container {
+        height: 80vh;
+        width: 90vw;
+        background-color: white;
+        border-radius: .3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .blur--container {
+        height: 80vh;
+        width: 90vw;
+        background-color: white;
+        border-radius: .3rem;
+        display: grid;
+        place-items: center;
+        opacity: .6;
+        filter: blur(6px);
+    }
+
+    .play--how {
+        padding: .7rem 1.2rem;
+        font-size: .8rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #0b2434;
+        color: white;
+        font-weight: 600;
+    }
+
+    .hide--guide {
+        margin-top: 3.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 60vh;
+        width: 85vw;
+        position: absolute;
+        background-color: #0b2434;
+        color: white;
+        padding: .5rem;
+        text-align: center;
+        font-size: 1.1rem;
+        z-index: 100;
+        line-height: 2rem;
+        word-spacing: .3rem;
+        transform: scale(0);
+        transition: all .5s ease-in;
+    }
+
+    .show--guide {
+        margin-top: 3.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 60vh;
+        width: 85vw;
+        position: absolute;
+        background-color: #0b2434;
+        color: white;
+        padding: .5rem;
+        text-align: center;
+        font-size: 1.1rem;
+        z-index: 100;
+        line-height: 2rem;
+        word-spacing: .3rem;
+        transform: scale(1);
+        transition: all .5s ease-in;
+    }
+
+    .got--it {
+        margin-top: 2.5rem;
+        width: 8rem;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #59e391;
+        font-weight: 600;
+    }
+
+
+    .won {
+        position: absolute;
+        height: 90vh;
+        width: 90vw;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 2rem;
+        color: white;
+        z-index: 10;
+    }
+
+    .buttons--container {
+        display: grid;
+        grid-template-rows: repeat(2, 2rem);
+        grid-template-columns: repeat(5, 2rem);
+        gap: 2rem;
+        place-items: center;
+    }
+
+    .buttons--container button {
+        border: none;
+        outline: none;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
+        border-radius: .4rem;
+        font-size: 1.7rem;
+        cursor: pointer;
+        height: 3.2rem;
+        width: 3.2rem;
+        transition: all .3s ease-in-out;
+    }
+
+    .roll--dice {
+        height: 2.4rem;
+        width: 7rem;
+        padding: .3rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: .5rem;
+        background-color: #0b2434;
+        color: white;
+    }
+
+    .reset {
+        height: 3em;
+        width: 9em;
+        padding: 1rem;
+        font-size: 1.1rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #0b2434;
+        color: white;
+        font-weight: 600;
+    }
+
+}
+
+/* For larger size Mobiles */
+
+@media (min-width:376px) and (max-width:425px) {
+    .App {
+        background-color: #0b2434;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .game--container {
+        height: 85vh;
+        width: 85vw;
+        background-color: white;
+        border-radius: .3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .blur--container {
+        height: 85vh;
+        width: 85vw;
+        background-color: white;
+        border-radius: .3rem;
+        display: grid;
+        place-items: center;
+        opacity: .6;
+        filter: blur(6px);
+    }
+
+    .play--how {
+        padding: .7rem 1.2rem;
+        font-size: .9rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #0b2434;
+        color: white;
+        font-weight: 600;
+    }
+
+    .hide--guide {
+        margin-top: 3.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 65vh;
+        width: 80vw;
+        position: absolute;
+        background-color: #0b2434;
+        color: white;
+        padding: .7rem;
+        text-align: center;
+        font-size: 1.3rem;
+        z-index: 100;
+        line-height: 2.4rem;
+        word-spacing: .3rem;
+        transform: scale(0);
+        transition: all .5s ease-in;
+    }
+
+    .show--guide {
+        margin-top: 3.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 65vh;
+        width: 80vw;
+        position: absolute;
+        background-color: #0b2434;
+        color: white;
+        padding: .7rem;
+        text-align: center;
+        font-size: 1.3rem;
+        z-index: 100;
+        line-height: 2.4rem;
+        word-spacing: .3rem;
+        transform: scale(1);
+        transition: all .5s ease-in;
+    }
+
+    .got--it {
+        margin-top: 2.5rem;
+        width: 8rem;
+        padding: .6rem 1rem;
+        font-size: 1.1rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #59e391;
+        font-weight: 600;
+    }
+
+    .won {
+        position: absolute;
+        height: 90vh;
+        width: 90vw;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 2rem;
+        color: white;
+        z-index: 10;
+    }
+
+    .buttons--container {
+        display: grid;
+        grid-template-rows: repeat(2, 2rem);
+        grid-template-columns: repeat(5, 2rem);
+        gap: 1.9rem;
+        place-items: center;
+    }
+
+    .buttons--container button {
+        border: none;
+        outline: none;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
+        border-radius: .4rem;
+        font-size: 1.8rem;
+        cursor: pointer;
+        height: 3.2rem;
+        width: 3.2rem;
+        transition: all .3s ease-in-out;
+    }
+
+    .roll--dice {
+        height: 2.7rem;
+        width: 7rem;
+        padding: .4rem;
+        font-size: 1.3rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: .5rem;
+        background-color: #0b2434;
+        color: white;
+    }
+
+    .reset {
+        height: 3em;
+        width: 9em;
+        padding: 1rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #0b2434;
+        color: white;
+        font-weight: 600;
+    }
+}
+
+/* For Tablets */
+
+@media (min-width:426px) and (max-width:768px) {
+    .App {
+        background-color: #0b2434;
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        place-items: center;
+        position: relative;
+    }
+
+    .game--container {
+        height: 90vh;
+        width: 60vw;
+        background-color: white;
+        border-radius: .3rem;
+        display: grid;
+        place-items: center;
+    }
+
+    .blur--container {
+        height: 90vh;
+        width: 60vw;
+        background-color: white;
+        border-radius: .3rem;
+        display: grid;
+        place-items: center;
+        opacity: .6;
+        filter: blur(6px);
+    }
+
+    .play--how {
+        padding: .7rem 1.2rem;
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #0b2434;
+        color: white;
+        font-weight: 600;
+    }
+
+    .hide--guide {
+        margin-top: 3.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 75vh;
+        width: 55vw;
+        position: absolute;
+        background-color: #0b2434;
+        color: white;
+        padding: .7rem;
+        text-align: center;
+        font-size: 1.6rem;
+        z-index: 100;
+        line-height: 2.8rem;
+        word-spacing: .3rem;
+        transform: scale(0);
+        transition: all .5s ease-in;
+    }
+
+    .show--guide {
+        margin-top: 3.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 75vh;
+        width: 55vw;
+        position: absolute;
+        background-color: #0b2434;
+        color: white;
+        padding: .7rem;
+        text-align: center;
+        font-size: 1.6rem;
+        z-index: 100;
+        line-height: 2.8rem;
+        word-spacing: .3rem;
+        transform: scale(1);
+        transition: all .5s ease-in;
+    }
+
+    .got--it {
+        margin-top: 2.5rem;
+        width: 10rem;
+        padding: .6rem 1rem;
+        font-size: 1.3rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #59e391;
+        font-weight: 600;
+    }
+
+    .won {
+        position: absolute;
+        height: 95vh;
+        width: 70vw;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+        color: white;
+        z-index: 10;
+    }
+
+    .buttons--container {
+        display: grid;
+        grid-template-rows: repeat(2, 2rem);
+        grid-template-columns: repeat(5, 2rem);
+        gap: 3rem;
+        place-items: center;
+    }
+
+    .buttons--container button {
+        border: none;
+        outline: none;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
+        border-radius: .4rem;
+        font-size: 2rem;
+        cursor: pointer;
+        height: 4rem;
+        width: 4rem;
+        font-weight: 600;
+        transition: all .3s ease-in-out;
+        font-family: sans-serif;
+    }
+
+    .roll--dice {
+        height: 2.7rem;
+        width: 8rem;
+        padding: .4rem;
+        font-size: 1.4rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: .5rem;
+        background-color: #0b2434;
+        color: white;
+    }
+
+    .reset {
+        height: 3em;
+        width: 9em;
+        padding: 1rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #0b2434;
+        color: white;
+        font-weight: 600;
+    }
+}
+
+/* For Laptops / PC */
+
+@media (min-width:769px) and (max-width:1024px) {
+    .App {
+        background-color: #0b2434;
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        place-items: center;
+        position: relative;
+    }
+
+    .game--container {
+        height: 90vh;
+        width: 50vw;
+        background-color: white;
+        border-radius: .3rem;
+        display: grid;
+        place-items: center;
+    }
+
+    .blur--container {
+        height: 90vh;
+        width: 50vw;
+        background-color: white;
+        border-radius: .3rem;
+        display: grid;
+        place-items: center;
+        opacity: .6;
+        filter: blur(6px);
+    }
+
+
+    .play--how {
+        padding: .7rem 1.2rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #0b2434;
+        color: white;
+        font-weight: 600;
+    }
+
+    .hide--guide {
+        margin-top: 3.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 75vh;
+        width: 45vw;
+        position: absolute;
+        background-color: #0b2434;
+        color: white;
+        padding: .7rem;
+        text-align: center;
+        font-size: 1.8rem;
+        z-index: 100;
+        line-height: 2.9rem;
+        word-spacing: .3rem;
+        transform: scale(0);
+        transition: all .5s ease-in;
+    }
+
+    .show--guide {
+        margin-top: 3.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 75vh;
+        width: 45vw;
+        position: absolute;
+        background-color: #0b2434;
+        color: white;
+        padding: .7rem;
+        text-align: center;
+        font-size: 1.8rem;
+        z-index: 100;
+        line-height: 2.9rem;
+        word-spacing: .3rem;
+        transform: scale(1);
+        transition: all .5s ease-in;
+    }
+
+    .got--it {
+        margin-top: 2.5rem;
+        width: 10rem;
+        padding: .6rem 1rem;
+        font-size: 1.4rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #59e391;
+        font-weight: 600;
+    }
+
+    .won {
+        position: absolute;
+        height: 95vh;
+        width: 55vw;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        color: white;
+        z-index: 10;
+    }
+
+    .buttons--container {
+        display: grid;
+        grid-template-rows: repeat(2, 2rem);
+        grid-template-columns: repeat(5, 2rem);
+        gap: 3.7rem;
+        place-items: center;
+    }
+
+    .buttons--container button {
+        border: none;
+        outline: none;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
+        border-radius: .4rem;
+        font-size: 2.5rem;
+        cursor: pointer;
+        height: 4.5rem;
+        width: 4.5rem;
+        font-weight: 600;
+        transition: all .3s ease-in-out;
+        font-family: sans-serif;
+    }
+
+    .roll--dice {
+        height: 3rem;
+        width: 9rem;
+        padding: .4rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: .5rem;
+        background-color: #0b2434;
+        color: white;
+    }
+
+    .reset {
+        height: 3em;
+        width: 9em;
+        padding: 1rem;
+        font-size: 1.4rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 19px 0 19px 0;
+        background-color: #0b2434;
+        color: white;
+        font-weight: 600;
+    }
+}
